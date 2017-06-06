@@ -8,10 +8,13 @@
 	top: -150px;
 }
 
+.main-title{
+	text-align: center;
+}
+
 @media (max-width: 1000px){
 	
 	.form-group{
 		top: -50px;
 	}
-
 }
