@@ -2,16 +2,13 @@
 
 	//Actual slide
 	var actual = 0;
-
 	var width = 600;
 
 
 	var $slideShow = $(".slideShow ul");
-	var slides = $(".slideShow ul").find("li").length;
+	var slides = $slideShow.find("li").length;
 	
 	function move (dir){
-
-		(dir === "next") ? actual++ : actual--;
 
 		// if (dir === "next"){
 		// 	actual++;
@@ -19,9 +16,26 @@
 		// 	actual--;
 		// }
 
+		(dir === "next") ? actual-- : actual++;
+
+		if(actual > 0){
+
+			actual = (slides - 1) * (-1);
+
+		}else if(actual <= (slides * (-1))){
+			actual = 0;
+		}
+
+		var margin = actual * width;
+
+		$slideShow.animate({
+			marginLeft: margin
+		},450);
+		
+
 	}
 
-	$(".botSlide").on("click", function(){
+	$(".butSlide").on("click", function(){
 
 		var dir = $(this).data("mov");
 		move(dir);
