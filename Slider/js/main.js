@@ -8,13 +8,22 @@
 	var $slideShow = $(".slideShow ul");
 	var slides = $slideShow.find("li").length;
 	
-	function move (dir){
+	var interval = setInterval(function(){
+
+		move("next");
+
+	}, 1500);
+
+	function move (dir, click){
 
 		// if (dir === "next"){
 		// 	actual++;
 		// }else{
 		// 	actual--;
 		// }
+
+		if ( click )
+			clearInterval (interval);
 
 		(dir === "next") ? actual-- : actual++;
 
@@ -38,7 +47,7 @@
 	$(".butSlide").on("click", function(){
 
 		var dir = $(this).data("mov");
-		move(dir);
+		move(dir, true);
 
 	});
 
