@@ -4,14 +4,12 @@
 	var actual = 0;
 	var width = 600;
 
-
 	var $slideShow = $(".slideShow ul");
 	var slides = $slideShow.find("li").length;
 	
+	//Loop interval
 	var interval = setInterval(function(){
-
 		move("next");
-
 	}, 1500);
 
 	function move (dir, click){
@@ -22,6 +20,7 @@
 		// 	actual--;
 		// }
 
+		//Break the interval loop
 		if ( click )
 			clearInterval (interval);
 
@@ -39,7 +38,7 @@
 
 		$slideShow.animate({
 			marginLeft: margin
-		},450);
+		},750);
 		
 
 	}
@@ -47,6 +46,7 @@
 	$(".butSlide").on("click", function(){
 
 		var dir = $(this).data("mov");
+		//True paramente to break the loop interval
 		move(dir, true);
 
 	});
