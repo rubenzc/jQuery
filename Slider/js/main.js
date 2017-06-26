@@ -6,6 +6,11 @@
 
 	var $slideShow = $(".slideShow ul");
 	var slides = $slideShow.find("li").length;
+	var $points = $(".slideShowButtons");
+
+	$points.find("div").eq(0).css({
+		backgroundColor: "#58167d"
+	});
 	
 	//Loop interval
 	var interval = setInterval(function(){
@@ -45,11 +50,19 @@
 			clearInterval (interval);
 
 		var margin = actual * width;
+		var idx = actual * -1;
 
-		$slideShow.animate({
-			marginLeft: margin
-		},750);
+		var $actualPoint = $points.find("div").eq(idx);
+		var $otherPoints = $points.find("div").not($actualPoint);
 
+		var tl = new TimelineMax();
+		tl.to( $slideShow, 1.2, { marginLeft: margin, ease: Elastic.easeOut.config(1, 0.75) } )
+		  .to( $actualPoint, 0.5, { backgroundColor: "#58167d" }, "-=1.2" )
+		  .to( $otherPoints, 0.5, { backgroundColor: "#a1a1a1" }, "-=1.2" );
+
+		// $slideShow.animate({
+		// 	marginLeft: margin
+		// },750);
 	}
 
 
