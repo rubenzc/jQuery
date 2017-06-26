@@ -1,90 +1,127 @@
 (function(){
 
-	//Actual slide
-	var actual = 0;
-	var width = 600;
+	//Function to customize the slider
+	$.slideShow = function(options){
 
-	var $slideShow = $(".slideShow ul");
-	var slides = $slideShow.find("li").length;
-	var $points = $(".slideShowButtons");
+		options = $.extend({
 
-	$points.find("div").eq(0).css({
-		backgroundColor: "#58167d"
-	});
-	
-	//Loop interval
-	var interval = setInterval(function(){
-		move("next");
-	}, 1500);
+			divDestiny: ".slideShow",
+			interval: 1500,
+			width: 600,
+			slides: [],
 
-	function move (dir, click){
+		}, options);
 
-		// if (dir === "next"){
-		// 	actual++;
-		// }else{
-		// 	actual--;
-		// }
-
-		//Break the interval loop
-
-
-		(dir === "next") ? actual-- : actual++;
-
-		if(actual > 0){
-
-			actual = (slides - 1) * (-1);
-
-		}else if(actual <= (slides * (-1))){
-			actual = 0;
+		if(options.slides.length === 0){
+			alert("SLIDES NECCESARY");
+			return;
 		}
 
-		move_by_point(actual, click);
+		//Actual slide
+		var actual = 0;
+		var width = options.width;
+
 		
+		var slides = options.slides.length;
 
-	}
+		//Slideshow creation
+		var content = "";
+			content += "<ul>"
 
-	function move_by_point(actual, click){
+				for( var i=0; i< options.slides.length; i++){
+					content += '<li><img src="'+ options.slides[i] +'"></li>';
+				}
 
-		//Stop the interval when you click a slide
-		if ( click )
-			clearInterval (interval);
+			content += "<ul>"
 
-		var margin = actual * width;
-		var idx = actual * -1;
+		$(options.divDestiny).append(content);
+		var $slideShow = $(".slideShow ul");
 
-		var $actualPoint = $points.find("div").eq(idx);
-		var $otherPoints = $points.find("div").not($actualPoint);
+		//Create buttons
 
-		var tl = new TimelineMax();
-		tl.to( $slideShow, 1.2, { marginLeft: margin, ease: Elastic.easeOut.config(1, 0.75) } )
-		  .to( $actualPoint, 0.5, { backgroundColor: "#58167d" }, "-=1.2" )
-		  .to( $otherPoints, 0.5, { backgroundColor: "#a1a1a1" }, "-=1.2" );
+		var $points = $(".slideShowButtons");
 
-		// $slideShow.animate({
-		// 	marginLeft: margin
-		// },750);
-	}
+		$points.find("div").eq(0).css({
+			backgroundColor: "#58167d"
+		});
+		
+		//Loop interval
+		var interval = setInterval(function(){
+			move("next");
+		}, options.interval);
 
+		function move (dir, click){
 
-	//Control for ball buttons
-	$(".slideButton").on("click", function(){
+			// if (dir === "next"){
+			// 	actual++;
+			// }else{
+			// 	actual--;
+			// }
 
-		var idx = $(this).data("idx");
-		idx = idx *-1;
-
-		move_by_point(idx, true);
-	});
+			//Break the interval loop
 
 
+			(dir === "next") ? actual-- : actual++;
 
-	//Control about next and previous buttons
-	$(".butSlide").on("click", function(){
+			if(actual > 0){
 
-		var dir = $(this).data("mov");
-		//True paramente to break the loop interval
-		move(dir, true);
+				actual = (slides - 1) * (-1);
 
-	});
+			}else if(actual <= (slides * (-1))){
+				actual = 0;
+			}
+
+			move_by_point(actual, click);
+			
+
+		}
+
+		function move_by_point(actual, click){
+
+			//Stop the interval when you click a slide
+			if ( click )
+				clearInterval (interval);
+
+			var margin = actual * width;
+			var idx = actual * -1;
+
+			var $actualPoint = $points.find("div").eq(idx);
+			var $otherPoints = $points.find("div").not($actualPoint);
+
+			var tl = new TimelineMax();
+			tl.to( $slideShow, 1.2, { marginLeft: margin, ease: Elastic.easeOut.config(1, 0.75) } )
+			  .to( $actualPoint, 0.5, { backgroundColor: "#58167d" }, "-=1.2" )
+			  .to( $otherPoints, 0.5, { backgroundColor: "#a1a1a1" }, "-=1.2" );
+
+			// $slideShow.animate({
+			// 	marginLeft: margin
+			// },750);
+		}
+
+
+		//Control for ball buttons
+		$(".slideButton").on("click", function(){
+
+			var idx = $(this).data("idx");
+			idx = idx *-1;
+
+			move_by_point(idx, true);
+		});
+
+
+
+		//Control about next and previous buttons
+		$(".butSlide").on("click", function(){
+
+			var dir = $(this).data("mov");
+			//True paramente to break the loop interval
+			move(dir, true);
+
+		});
+
+
+		}
+
 
 
 })();
