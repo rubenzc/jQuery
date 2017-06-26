@@ -21,8 +21,7 @@
 		// }
 
 		//Break the interval loop
-		if ( click )
-			clearInterval (interval);
+
 
 		(dir === "next") ? actual-- : actual++;
 
@@ -34,15 +33,38 @@
 			actual = 0;
 		}
 
+		move_by_point(actual, click);
+		
+
+	}
+
+	function move_by_point(actual, click){
+
+		//Stop the interval when you click a slide
+		if ( click )
+			clearInterval (interval);
+
 		var margin = actual * width;
 
 		$slideShow.animate({
 			marginLeft: margin
 		},750);
-		
 
 	}
 
+
+	//Control for ball buttons
+	$(".slideButton").on("click", function(){
+
+		var idx = $(this).data("idx");
+		idx = idx *-1;
+
+		move_by_point(idx, true);
+	});
+
+
+
+	//Control about next and previous buttons
 	$(".butSlide").on("click", function(){
 
 		var dir = $(this).data("mov");
