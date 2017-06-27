@@ -8,6 +8,8 @@
 			divDestiny: ".slideShow",
 			interval: 1500,
 			width: 600,
+			speed: 1200,
+			color: "#ba007c",
 			slides: [],
 
 		}, options);
@@ -16,6 +18,8 @@
 			alert("SLIDES NECCESARY");
 			return;
 		}
+
+		options.speed = options.speed/ 1000;
 
 		//Actual slide
 		var actual = 0;
@@ -35,14 +39,24 @@
 			content += "<ul>"
 
 		$(options.divDestiny).append(content);
-		var $slideShow = $(".slideShow ul");
+		var $slideShow = $(options.divDestiny + " ul");
 
 		//Create buttons
+		content = "";
+		content += '<div class="slideShowButtons">';
+		var $slideShow = $(options.divDestiny + " ul");
+
+			for( var i=0; i< options.slides.length; i++){
+				content += '<div data-idx="'+ i +'" class="slideButton"></div>';
+			}
+		content += "</div>";
+
+		$(options.divDestiny).append(content);
+
 
 		var $points = $(".slideShowButtons");
-
 		$points.find("div").eq(0).css({
-			backgroundColor: "#58167d"
+			backgroundColor: options.color
 		});
 		
 		//Loop interval
@@ -89,8 +103,8 @@
 			var $otherPoints = $points.find("div").not($actualPoint);
 
 			var tl = new TimelineMax();
-			tl.to( $slideShow, 1.2, { marginLeft: margin, ease: Elastic.easeOut.config(1, 0.75) } )
-			  .to( $actualPoint, 0.5, { backgroundColor: "#58167d" }, "-=1.2" )
+			tl.to( $slideShow, options.speed, { marginLeft: margin, ease: Elastic.easeOut.config(1, 0.75) } )
+			  .to( $actualPoint, 0.5, { backgroundColor: options.color }, "-=1.2" )
 			  .to( $otherPoints, 0.5, { backgroundColor: "#a1a1a1" }, "-=1.2" );
 
 			// $slideShow.animate({
