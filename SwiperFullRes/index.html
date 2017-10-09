@@ -3,22 +3,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
 
 <style>
-
 /**********************************/
 /*******   Styles SWIPER  ******** /
 /**********************************/
-
 /*.swiper-container {height: 100vh !important;}*/
-
 #homeSlider .swiper-slide {
     background-position: center;
     background-size: cover;
 }
-
 .slide1{background: url(https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg);}
 /*.slide2{background: url(http://hd.wallpaperswide.com/thumbs/dream_house-t1.jpg);}
 .slide3{background: url(https://www.walldevil.com/wallpapers/a79/fantasy-world-mountain-wallpaper-wallpapers.jpg);}*/
-
 /*Charge bar Bullets*/
 .swiper-pagination-bullet {
     background: transparent;
@@ -31,7 +26,6 @@
     background: #f00 !important;
     opacity: 1 !important;
 }
-
 .swiper-pagination-bullet:after {
     background: #f00 !important;
     content: "";
@@ -41,12 +35,10 @@
     top: 0px; left: 0;
     width: 100%;
 }
-
 .swiper-pagination-bullet-active {
     opacity: 1;
     background: #ff0000 !important;
 }
-
 .swiper-pagination-bullet-active:before {
     background: #FFF;
     content: "";
@@ -59,7 +51,6 @@
     -webkit-animation:  slideLoad 6s ease-in-out;
     animation:  slideLoad 6s ease-in-out;
 }
-
 @keyframes slideLoad {
   0% {
     width: 0%;
@@ -69,8 +60,6 @@
   }
 }
 /* END Charge bar Bullets*/
-
-
 /*Arrows*/
 .swiper-button-arrow {
     background: none;
@@ -81,7 +70,6 @@
     -webkit-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
 }
-
 /* .swiper-button-arrow:before {
     font-family: 'MiraiIcons';
     display: inline-block;
@@ -92,33 +80,26 @@
     line-height: inherit;
     color: #9b9b9b
 ;} */
-
 .swiper-button-prev:before {
     content: '<';
     color: #fff;
 }
-
 .swiper-button-next:before {
     content: '>';
     color: #fff;
 }
-
 /**/
-
 #homeSlider .swiper-button-prev{left: -30px;}
 #homeSlider .swiper-button-next{right: -30px;}
 #homeSlider:hover .swiper-button-next{right: 10px;}
 #homeSlider:hover .swiper-button-prev{left: 10px;}
 #homeSlider .swiper-button-arrow:before{font-size: 40px;}
-
 #footer{
     /* display: none; */
 }
-
 .backstretch {
     /* width: 100%!important; */
 }
-
 #homeSlider .swiper-slide h1, #main-claim-section h1, .blog-claim-section h1 {
     color: #fff;
     -webkit-text-shadow: 0 2px 4px rgba(0,0,0,.11);
@@ -127,14 +108,12 @@
     position: relative;
     z-index: 2;
 }
-
 #homeSlider .swiper-slide .pill-button, .plain-color-box a.pill-button, .black-color-box a.pill-button, .bg-red-opacity a.pill-button, .bg-black-opacity a.pill-button {
     display: inline-block;
     margin-top: 30px;
     border: 1px solid #fff;
     color: #fff;
 }
-
 input.pill-button, a.pill-button {
     border: 1px solid #ee293a;
     border-radius: 100px;
@@ -149,17 +128,18 @@ input.pill-button, a.pill-button {
     -o-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
 }
-
 #homeSlider .swiper-slide .pill-button:hover{
     background-color: #fff;
     color: #ee293a!important;
 }
-
 #homeSlider .swiper-slide.slider-1 .slide-content {
     text-align: center;
     margin: 0 auto;
     /*width: 100vw!important;*/
 }
+
+.full-width {width: 100%;object-fit: cover;}
+.full-height {height: 100%;object-fit: cover;}
 
 /*END SWIPER*/
 </style>
@@ -175,10 +155,7 @@ input.pill-button, a.pill-button {
 
         </div>
         <div class="swiper-slide item slide2">
-          <div class="slide-content" data-img="https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg">
-                <h1>TEST</h1>
-                    <a href="/servicios/estrategia-de-ventas/#pricesFormSection" class="pill-button" title="Te ayudamos">BUTTON TEST</a>
-                </div>
+          [get_ngg_image id='8' align=' full-width full-height']
             <!-- <div data-img="[get_ngg_image id='8' src_only='true']"></div> -->
         </div>
         <div class="swiper-slide item slide3">
@@ -197,16 +174,11 @@ input.pill-button, a.pill-button {
 </div>
 
 <script>
-
-
 // function res(h){
 //     Mirai.query('#homeSlider').css('height',h);
 // };
-
     jQuery(document).ready(function(){
-
         //Mirai.Backstretch.generateBackstretchSlider('.backstretch-slider-container');
-
         var homeSlider = new Swiper('#homeSlider', {
             autoplay: '6000',
             autoplayDisableOnInteraction: false,
@@ -215,32 +187,23 @@ input.pill-button, a.pill-button {
             pagination: '.swiper-pagination',
             paginationClickable: true,
         });
-
         // var windowHeight = jQuery(window).outerHeight();
         // res(windowHeight);
-
         // jQuery(window).resize(function(){
         //     res(windowHeight);
         //  });
-
             jQuery("#homeSlider").height(jQuery(window).height());
                 jQuery(window).resize(function(){
                     jQuery("#homeSlider").height(jQuery(window).height());
                 });
-
-
-
         // jQuery(window).resize(function(){
         //     var windowHeight = jQuery(window).height();    
         //     Mirai.query("#homeSlider").css('height',windowHeight);
         // });
         // var windowHeight = jQuery(window).height();
         // setHeight(windowHeight);
-
         // Mirai.query(window).resize(function(){
         //     setHeight();
         // });
-
     });//End document.ready
-
 </script>
