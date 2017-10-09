@@ -1,0 +1,225 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js?ver=3.1.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.min.js"></script>
+
+<style>
+
+/**********************************/
+/*******   Styles SWIPER  ******** /
+/**********************************/
+
+/*.swiper-container {height: 100vh !important;}*/
+
+#homeSlider .swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+
+.slide1{background: url(https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg);}
+/*.slide2{background: url(http://hd.wallpaperswide.com/thumbs/dream_house-t1.jpg);}
+.slide3{background: url(https://www.walldevil.com/wallpapers/a79/fantasy-world-mountain-wallpaper-wallpapers.jpg);}*/
+
+/*Charge bar Bullets*/
+.swiper-pagination-bullet {
+    background: transparent;
+    border-radius: 0 !important;
+    display: inline-block;
+    height: 6px;
+    opacity: 1;
+    position: relative;
+    width: 100px !important;
+    background: #f00 !important;
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet:after {
+    background: #f00 !important;
+    content: "";
+    display: block;
+    height: 5px;
+    position: absolute;
+    top: 0px; left: 0;
+    width: 100%;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ff0000 !important;
+}
+
+.swiper-pagination-bullet-active:before {
+    background: #FFF;
+    content: "";
+    display: block;
+    height: 4px;
+    position: absolute;
+    top: 5px; left: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-animation:  slideLoad 6s ease-in-out;
+    animation:  slideLoad 6s ease-in-out;
+}
+
+@keyframes slideLoad {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/* END Charge bar Bullets*/
+
+
+/*Arrows*/
+.swiper-button-arrow {
+    background: none;
+    width: auto;
+    height: auto;
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+/* .swiper-button-arrow:before {
+    font-family: 'MiraiIcons';
+    display: inline-block;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: normal;
+    font-size: inherit;
+    line-height: inherit;
+    color: #9b9b9b
+;} */
+
+.swiper-button-prev:before {
+    content: '<';
+    color: #fff;
+}
+
+.swiper-button-next:before {
+    content: '>';
+    color: #fff;
+}
+
+/**/
+
+#homeSlider .swiper-button-prev{left: -30px;}
+#homeSlider .swiper-button-next{right: -30px;}
+#homeSlider:hover .swiper-button-next{right: 10px;}
+#homeSlider:hover .swiper-button-prev{left: 10px;}
+#homeSlider .swiper-button-arrow:before{font-size: 40px;}
+
+#footer{
+    /* display: none; */
+}
+
+.backstretch {
+    /* width: 100%!important; */
+}
+
+#homeSlider .swiper-slide h1, #main-claim-section h1, .blog-claim-section h1 {
+    color: #fff;
+    -webkit-text-shadow: 0 2px 4px rgba(0,0,0,.11);
+    -moz-text-shadow: 0 2px 4px rgba(0,0,0,.11);
+    text-shadow: 0 2px 4px #000;
+    position: relative;
+    z-index: 2;
+}
+
+#homeSlider .swiper-slide .pill-button, .plain-color-box a.pill-button, .black-color-box a.pill-button, .bg-red-opacity a.pill-button, .bg-black-opacity a.pill-button {
+    display: inline-block;
+    margin-top: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+input.pill-button, a.pill-button {
+    border: 1px solid #ee293a;
+    border-radius: 100px;
+    padding: 15px 40px;
+    background-color: transparent;
+    color: #ee293a;
+    min-width: 130px;
+    display: inline-block;
+    text-align: center;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+#homeSlider .swiper-slide .pill-button:hover{
+    background-color: #fff;
+    color: #ee293a!important;
+}
+
+#homeSlider .swiper-slide.slider-1 .slide-content {
+    text-align: center;
+    margin: 0 auto;
+    /*width: 100vw!important;*/
+}
+
+/*END SWIPER*/
+</style>
+
+<div id="homeSlider" class="swiper-container backstretch-slider-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide active item slide1 slider-1 swiper-slide swiper-slide-prev">
+            <div class="slide-content" data-img="https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg">
+                <h1>TEST</h1>
+                    <a href="/servicios/estrategia-de-ventas/#pricesFormSection" class="pill-button" title="Te ayudamos">BUTTON TEST</a>
+                </div>
+            <!-- <div data-img="[get_ngg_image id='8' src_only='true']"></div> -->
+
+        </div>
+        <div class="swiper-slide item slide2">
+          <div class="slide-content" data-img="https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg">
+                <h1>TEST</h1>
+                    <a href="/servicios/estrategia-de-ventas/#pricesFormSection" class="pill-button" title="Te ayudamos">BUTTON TEST</a>
+                </div>
+            <!-- <div data-img="[get_ngg_image id='8' src_only='true']"></div> -->
+        </div>
+        <div class="swiper-slide item slide3">
+            <div class="slide-content" data-img="https://static.pexels.com/photos/33109/fall-autumn-red-season.jpg">
+                <h1>TEST</h1>
+                    <a href="/servicios/estrategia-de-ventas/#pricesFormSection" class="pill-button" title="Te ayudamos">BUTTON TEST</a>
+                </div>
+            <!-- <div data-img="[get_ngg_image id='8' src_only='true']"></div> -->
+        </div>
+     </div>
+
+    <div class="swiper-button-arrow swiper-button-prev"></div>
+    <div class="swiper-button-arrow swiper-button-next"></div>
+
+     <div class="swiper-pagination"></div>
+</div>
+
+<script>
+
+
+function res(h){
+    Mirai.query('#homeSlider').css('height',h);
+};
+
+
+// Mirai.query('#homeSlider').css('height',heightW);
+
+    jQuery(document).ready(function(){
+        
+        //Mirai.Backstretch.generateBackstretchSlider('.backstretch-slider-container');
+
+        var homeSlider = new Swiper('#homeSlider', {
+            autoplay: '6000',
+            autoplayDisableOnInteraction: false,
+            nextButton: '#homeSlider .swiper-button-next',
+            prevButton: '#homeSlider .swiper-button-prev',
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+        });
+
+        var heightW = jQuery(window).height();
+        res(heightW);
+    });
+</script>
