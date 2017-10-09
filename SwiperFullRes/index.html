@@ -199,15 +199,12 @@ input.pill-button, a.pill-button {
 <script>
 
 
-function res(h){
-    Mirai.query('#homeSlider').css('height',h);
-};
-
-
-// Mirai.query('#homeSlider').css('height',heightW);
+// function res(h){
+//     Mirai.query('#homeSlider').css('height',h);
+// };
 
     jQuery(document).ready(function(){
-        
+
         //Mirai.Backstretch.generateBackstretchSlider('.backstretch-slider-container');
 
         var homeSlider = new Swiper('#homeSlider', {
@@ -219,7 +216,31 @@ function res(h){
             paginationClickable: true,
         });
 
-        var heightW = jQuery(window).height();
-        res(heightW);
-    });
+        // var windowHeight = jQuery(window).outerHeight();
+        // res(windowHeight);
+
+        // jQuery(window).resize(function(){
+        //     res(windowHeight);
+        //  });
+
+            jQuery("#homeSlider").height(jQuery(window).height());
+                jQuery(window).resize(function(){
+                    jQuery("#homeSlider").height(jQuery(window).height());
+                });
+
+
+
+        // jQuery(window).resize(function(){
+        //     var windowHeight = jQuery(window).height();    
+        //     Mirai.query("#homeSlider").css('height',windowHeight);
+        // });
+        // var windowHeight = jQuery(window).height();
+        // setHeight(windowHeight);
+
+        // Mirai.query(window).resize(function(){
+        //     setHeight();
+        // });
+
+    });//End document.ready
+
 </script>
