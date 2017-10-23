@@ -1,0 +1,104 @@
+<style>
+/**********************************/
+/*******   Styles SWIPER  ******** /
+/**********************************/
+#homeSlider .swiper-slide {
+    background-position: center;
+    background-size: cover;
+}
+
+.swiper-pagination-bullet {
+    background: transparent;
+    border-radius: 0 !important;
+    display: inline-block;
+    height: 6px;
+    opacity: 1;
+    position: relative;
+    width: 100px !important;
+    background: #f00 !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet:after {
+    background: #f00 !important;
+    content: "";
+    display: block;
+    height: 5px;
+    position: absolute;
+    top: 0px; left: 0;
+    width: 100%;
+}
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #ff0000 !important;
+}
+.swiper-pagination-bullet-active:before {
+    background: #FFF;
+    content: "";
+    display: block;
+    height: 4px;
+    position: absolute;
+    top: 5px; left: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-animation:  slideLoad 6s ease-in-out;
+    animation:  slideLoad 6s ease-in-out;
+}
+@keyframes slideLoad {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+/* END Charge bar Bullets*/
+/*Arrows*/
+.swiper-button-arrow {
+    background: none;
+    width: auto;
+    height: auto;
+    transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+}
+
+.swiper-button-prev:before {
+    content: '<';
+    color: #fff;
+}
+.swiper-button-next:before {
+    content: '>';
+    color: #fff;
+}
+/**/
+#homeSlider .swiper-button-prev{left: -30px;}
+#homeSlider .swiper-button-next{right: -30px;}
+#homeSlider:hover .swiper-button-next{right: 10px;}
+#homeSlider:hover .swiper-button-prev{left: 10px;}
+#homeSlider .swiper-button-arrow:before{font-size: 40px;}
+
+.full-width {width: 100%;object-fit: cover;}
+.full-height {height: 100%;object-fit: cover;}
+
+/*END SWIPER*/
+</style>
+
+<div id="homeSlider" class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide active item slide1 slider-1 swiper-slide swiper-slide-prev">
+            [get_ngg_image id='20' align=' full-width full-height']
+        </div>
+        <div class="swiper-slide item slide2">
+          [get_ngg_image id='21' align=' full-width full-height']
+        </div>
+        <div class="swiper-slide item slide3">
+          [get_ngg_image id='24' align=' full-width full-height']
+        </div>
+     </div>
+
+    <div class="swiper-button-arrow swiper-button-prev"></div>
+    <div class="swiper-button-arrow swiper-button-next"></div>
+
+     <div class="swiper-pagination"></div>
+</div>
